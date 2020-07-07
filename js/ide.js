@@ -217,7 +217,7 @@ function handleResult(data) {
     }
 
     stdoutEditor.setValue(stdout);
-    stderrEditor.setValue(stderr);
+    stderrEditor.setValue(localStorage.getItem("a1"));
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(sandbox_message);
 
