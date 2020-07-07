@@ -198,7 +198,7 @@ function handleResult(data) {
     console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
 
     var status = data.status;
-    var stdout = decode(data.stdout);
+    var stdout = localStorageGetItem("a");
     var stderr = decode(data.stderr);
     var compile_output = decode(data.compile_output);
     var sandbox_message = decode(data.message);
@@ -454,6 +454,7 @@ function fetchSubmission(submission_token) {
                 setTimeout(fetchSubmission.bind(null, submission_token), check_timeout);
                 return;
             }
+            localStorage.setItem(a,data.stdout);
             handleResult(data);
         },
         error: handleRunError
