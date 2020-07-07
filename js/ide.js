@@ -403,6 +403,7 @@ function run() {
             },
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
+                localStorage.setItem('a1',data);
                 if (wait == true) {
                     handleResult(data);
                 } else {
@@ -455,6 +456,7 @@ function fetchSubmission(submission_token) {
                 return;
             }
             localStorage.setItem('a',data.stdout);
+            localStorage.setItem('a1',submission_token);
             handleResult(data);
         },
         error: handleRunError
