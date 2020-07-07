@@ -381,22 +381,22 @@ function run() {
         source_code: sourceValue,
         language_id: languageId,
         stdin: stdinValue,
-        // compiler_options: compilerOptions,
-        // command_line_arguments: commandLineArguments,
-        // redirect_stderr_to_stdout: redirectStderrToStdout
+        compiler_options: compilerOptions,
+        command_line_arguments: commandLineArguments,
+        redirect_stderr_to_stdout: redirectStderrToStdout
     };
 
     var sendRequest = function(data) {
         timeStart = performance.now();
         $.ajax({
-            url: 'https://judge0.p.rapidapi.com/submissions',
-            type: "GET",
-		       "headers": {
-		"x-rapidapi-host": "judge0.p.rapidapi.com",
-		"x-rapidapi-key": "2ef8579e00msh8f34677a1cdc1bfp1532e0jsnc5743428d194"
-	},
-	          // "useQueryString": true,
-	          // data: JSON.stringify(data),
+            url: 'https://api.judge0.com/submissions/?base64_encoded=true&wait=false',
+            type: "POST",
+            async: true,
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            xhrFields: {
+                withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
+            },
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
                 if (wait == true) {
