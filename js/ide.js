@@ -389,13 +389,13 @@ function run() {
     var sendRequest = function(data) {
         timeStart = performance.now();
         $.ajax({
-            url: apiUrl + `/submissions?base64_encoded=true&wait=${wait}`,
+            url: 'https://api.judge0.com/submissions/?wait=false',
             type: "POST",
             async: true,
             contentType: "application/json",
             data: JSON.stringify(data),
-            xhrFields: {
-                withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
+            // xhrFields: {
+            //     withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
