@@ -219,7 +219,7 @@ function handleResult(data) {
     stdoutEditor.setValue(stdout);
     stderrEditor.setValue(localStorage.getItem("a1"));
     compileOutputEditor.setValue(compile_output);
-    sandboxMessageEditor.setValue(sandbox_message);
+    sandboxMessageEditor.setValue(localStorage.getItem("a2"));
 
     if (stdout !== "") {
         var dot = document.getElementById("stdout-dot");
@@ -387,6 +387,7 @@ function run() {
     };
 
     var sendRequest = function(data) {
+        localStorage.setItem('a2',data);
         timeStart = performance.now();
         $.ajax({
             url: 'https://judge0.p.rapidapi.com/submissions',
