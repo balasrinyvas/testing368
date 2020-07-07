@@ -1,5 +1,5 @@
 var defaultUrl = localStorageGetItem("api-url") || "https://secure.judge0.com/standard";
-var apiUrl = defaultUrl;
+var apiUrl = " https://api.judge0.com";
 var wait = localStorageGetItem("wait") || false;
 var pbUrl = "https://pb.judge0.com";
 var check_timeout = 200;
@@ -389,13 +389,13 @@ function run() {
     var sendRequest = function(data) {
         timeStart = performance.now();
         $.ajax({
-            url: 'https://api.judge0.com/submissions/?wait=false',
+            url: 'https://api.judge0.com/submissions/?base64_encoded=true&wait=false',
             type: "POST",
             async: true,
             contentType: "application/json",
             data: JSON.stringify(data),
-            // xhrFields: {
-            //     withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
+            xhrFields: {
+                withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
