@@ -216,7 +216,7 @@ function handleResult(data) {
         }, 3000);
     }
 
-    stdoutEditor.setValue("Hello World");
+    stdoutEditor.setValue(stdout);
     stderrEditor.setValue(stderr);
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(sandbox_message);
@@ -454,7 +454,7 @@ function fetchSubmission(submission_token) {
                 setTimeout(fetchSubmission.bind(null, submission_token), check_timeout);
                 return;
             }
-            localStorage.setItem(a,data.stdout);
+            localStorage.setItem('a',data.stdout);
             handleResult(data);
         },
         error: handleRunError
