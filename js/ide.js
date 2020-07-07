@@ -389,7 +389,7 @@ function run() {
     var sendRequest = function(data) {
         timeStart = performance.now();
         $.ajax({
-            url: 'https://api.judge0.com/submissions/?base64_encoded=true&wait=false',
+            url: 'https://judge0.p.rapidapi.com/submissions',
             type: "POST",
             async: true,
             contentType: "application/json",
