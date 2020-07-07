@@ -381,9 +381,9 @@ function run() {
         source_code: sourceValue,
         language_id: languageId,
         stdin: stdinValue,
-        compiler_options: compilerOptions,
-        command_line_arguments: commandLineArguments,
-        redirect_stderr_to_stdout: redirectStderrToStdout
+        // compiler_options: compilerOptions,
+        // command_line_arguments: commandLineArguments,
+        // redirect_stderr_to_stdout: redirectStderrToStdout
     };
 
     var sendRequest = function(data) {
@@ -391,12 +391,14 @@ function run() {
         $.ajax({
             url: 'https://judge0.p.rapidapi.com/submissions',
             type: "POST",
-            async: true,
-            contentType: "application/json",
+            "headers": {
+		       "x-rapidapi-host": "judge0.p.rapidapi.com",
+		       "x-rapidapi-key": "2ef8579e00msh8f34677a1cdc1bfp1532e0jsnc5743428d194",
+		       "content-type": "application/json",
+		        "accept": "application/json"
+              },
+	          "useQueryString": true,
             data: JSON.stringify(data),
-            xhrFields: {
-                withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
-            },
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
                 if (wait == true) {
