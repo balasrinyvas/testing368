@@ -387,11 +387,12 @@ function run() {
     };
 
     var sendRequest = function(data) {
-        timeStart = performance.now();
+        //timeStart = performance.now();
         $.ajax({
-            url: 'https://api.judge0.com/submissions/?base64_encoded=true&wait=false',
+            url: 'https://judge0.p.rapidapi.com/submissions',
             type: "POST",
             async: true,
+            "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03",
             contentType: "application/json",
             data: JSON.stringify(data),
             xhrFields: {
