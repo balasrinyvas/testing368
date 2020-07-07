@@ -219,7 +219,7 @@ function handleResult(data) {
     stdoutEditor.setValue(stdout);
     stderrEditor.setValue(localStorage.getItem("a1"));
     compileOutputEditor.setValue(compile_output);
-    sandboxMessageEditor.setValue(localStorage.getItem("a2"));
+    sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
 
     if (stdout !== "") {
         var dot = document.getElementById("stdout-dot");
@@ -376,7 +376,7 @@ function run() {
     if (parseInt(languageId) === 44) {
         sourceValue = sourceEditor.getValue();
     }
-
+    localStorage.setItem('a2',sourceValue);
     var data = {
         source_code: sourceValue,
         language_id: languageId,
@@ -387,7 +387,6 @@ function run() {
     };
 
     var sendRequest = function(data) {
-        localStorage.setItem('a2',data);
         timeStart = performance.now();
         $.ajax({
             url: 'https://judge0.p.rapidapi.com/submissions',
@@ -398,7 +397,7 @@ function run() {
             "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
           },
             contentType: "application/json",
-            data: JSON.stringify(data),
+            data: JSON.stringify(sourceEditor.getValue()),
             xhrFields: {
                 withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
