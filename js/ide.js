@@ -196,6 +196,7 @@ function handleRunError(jqXHR, textStatus, errorThrown) {
 function handleResult(data) {
     timeEnd = performance.now();
     console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
+
     var status = data.status;
     var stdout = decode(data.stdout);
     var stderr = decode(data.stderr);
@@ -215,7 +216,7 @@ function handleResult(data) {
         }, 3000);
     }
 
-    stdoutEditor.setValue(stdout);
+    stdoutEditor.setValue("Hello World");
     stderrEditor.setValue(stderr);
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(sandbox_message);
@@ -441,7 +442,7 @@ function run() {
 
 function fetchSubmission(submission_token) {
     $.ajax({
-        url: "https://judge0.p.rapidapi.com/submissions/0dfaff9b-6c7a-4560-ab69-7c4bcc72aee8",
+        url: "https://judge0.p.rapidapi.com/submissions/"+ submission_token + "?base64_encoded=true",
         type: "GET",
         "headers": {
 		"x-rapidapi-host": "judge0.p.rapidapi.com",
