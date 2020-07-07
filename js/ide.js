@@ -387,12 +387,15 @@ function run() {
     };
 
     var sendRequest = function(data) {
-        //timeStart = performance.now();
+        timeStart = performance.now();
         $.ajax({
             url: 'https://judge0.p.rapidapi.com/submissions',
             type: "POST",
             async: true,
-            "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03",
+          "headers":{
+            "X-RapidAPI-Host":"judge0.p.rapidapi.com",
+            "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
+          },
             contentType: "application/json",
             data: JSON.stringify(data),
             xhrFields: {
@@ -439,8 +442,12 @@ function run() {
 
 function fetchSubmission(submission_token) {
     $.ajax({
-        url: apiUrl + "/submissions/" + submission_token + "?base64_encoded=true",
+        url: "https://judge0.p.rapidapi.com/submissions/"+ submission_token + "?base64_encoded=true",
         type: "GET",
+        "headers": {
+		"x-rapidapi-host": "judge0.p.rapidapi.com",
+		"x-rapidapi-key": "5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
+	},
         async: true,
         success: function (data, textStatus, jqXHR) {
             if (data.status.id <= 2) { // In Queue or Processing
