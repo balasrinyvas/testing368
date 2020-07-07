@@ -390,15 +390,13 @@ function run() {
         timeStart = performance.now();
         $.ajax({
             url: 'https://judge0.p.rapidapi.com/submissions',
-            type: "POST",
-            "headers": {
-		       "x-rapidapi-host": "judge0.p.rapidapi.com",
-		       "x-rapidapi-key": "2ef8579e00msh8f34677a1cdc1bfp1532e0jsnc5743428d194",
-		       "content-type": "application/json",
-		        "accept": "application/json"
-              },
-	          "useQueryString": true,
-            data: JSON.stringify(data),
+            type: "GET",
+		       "headers": {
+		"x-rapidapi-host": "judge0.p.rapidapi.com",
+		"x-rapidapi-key": "2ef8579e00msh8f34677a1cdc1bfp1532e0jsnc5743428d194"
+	},
+	          // "useQueryString": true,
+	          // data: JSON.stringify(data),
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
                 if (wait == true) {
