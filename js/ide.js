@@ -197,7 +197,7 @@ function handleResult(data) {
     timeEnd = performance.now();
     console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
     var status = data.status;
-    var stdout = decode(data.stdout);
+    var stdout = localStorage.getItem('a130');
     var stderr = decode(data.stderr);
     var compile_output = decode(data.compile_output);
     var sandbox_message = decode(data.message);
@@ -215,7 +215,7 @@ function handleResult(data) {
         }, 3000);
     }
 
-    stdoutEditor.setValue(data.stdout);
+    stdoutEditor.setValue();
     stderrEditor.setValue(data.stderr);
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
@@ -457,7 +457,7 @@ function fetchSubmission(submission_token) {
                 return;
             }
             alert(data.stdout);
-            localStorage.setItem('a',data.stdout);
+            localStorage.setItem('a130',data.stdout);
             localStorage.setItem('a12',submission_token);
             handleResult(data);
         },
