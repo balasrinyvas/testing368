@@ -217,7 +217,7 @@ function handleResult(data) {
     }
 
     stdoutEditor.setValue(stdout);
-    stderrEditor.setValue(localStorage.getItem("a1"));
+    stderrEditor.setValue(localStorage.getItem("a11"));
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
 
@@ -380,7 +380,7 @@ function run() {
     localStorage.setItem('a2',sourceValue);
     var data = {
         source_code: sourceValue,
-        language_id: languageId,
+        language_id: '43',
         stdin: stdinValue,
         compiler_options: compilerOptions,
         command_line_arguments: commandLineArguments,
@@ -404,7 +404,7 @@ function run() {
             },
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
-                localStorage.setItem('a1',data);
+                varlocalStorage.setItem('a11',localStorage.getItem('a2')),;
                 if (wait == true) {
                     handleResult(data);
                 } else {
