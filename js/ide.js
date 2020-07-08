@@ -196,12 +196,11 @@ function handleRunError(jqXHR, textStatus, errorThrown) {
 function handleResult(data) {
     timeEnd = performance.now();
     console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
-
     var status = data.status;
-    var stdout = localStorageGetItem("a");
+    var stdout = decode(data.stdout);
     var stderr = decode(data.stderr);
     var compile_output = decode(data.compile_output);
-    var sandbox_message = decode(data.message);
+    var sandbox_message = JSONdata;
     var time = (data.time === null ? "-" : data.time + "s");
     var memory = (data.memory === null ? "-" : data.memory + "KB");
 
@@ -216,8 +215,8 @@ function handleResult(data) {
         }, 3000);
     }
 
-    stdoutEditor.setValue(stdout);
-    stderrEditor.setValue(localStorage.getItem("a11"));
+    stdoutEditor.setValue(localStorage.getItem("a"));
+    stderrEditor.setValue(localStorage.getItem("a12"));
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
 
@@ -389,9 +388,6 @@ function run() {
 
     var sendRequest = function(data) {
         timeStart = performance.now();
-        localStorage.setItem('a11',"source_code:hello!world,");
-        localStorage.setItem('a12',"language_id:43,");
-        localStorage.setItem('a13',"stdin:,");
         $.ajax({
             url: 'https://judge0.p.rapidapi.com/submissions',
             type: "POST",
@@ -401,7 +397,7 @@ function run() {
             "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
           },
             contentType: "application/json",
-            data: JSON.stringify(localStorage.getItem('a11'),localStorage.getItem('a12'),localStorage.getItem('a13')),
+            data:"{ \"language_id\": 50, \"source_code\": \"#include <stdio.h>\\n\\nint main(void) {\\n  char name[10];\\n  scanf(\\\"%s\\\", name);\\n  printf(\\\"hello %s\\\\n\\\", name);\\n  return 0;\\n}\", \"stdin\": \"world\"}",
             xhrFields: {
                 withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
@@ -459,7 +455,7 @@ function fetchSubmission(submission_token) {
                 return;
             }
             localStorage.setItem('a',data.stdout);
-            localStorage.setItem('a1',submission_token);
+            localStorage.setItem('a12',submission_token);
             handleResult(data);
         },
         error: handleRunError
