@@ -377,8 +377,8 @@ function run() {
     }
     localStorage.setItem('a2',sourceValue);
      var data = {
-        source_code: sourceValue+"",
-        language_id: languageId+"",
+        source_code: sourceValue,
+        language_id: languageId,
         stdin: stdinValue,
         compiler_options: compilerOptions,
         command_line_arguments: commandLineArguments,
