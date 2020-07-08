@@ -442,7 +442,7 @@ function run() {
 
 function fetchSubmission(submission_token) {
     $.ajax({
-        url: "https://judge0.p.rapidapi.com/submissions/"+submission_token +"?base64_encoded=true",
+        url: "https://judge0.p.rapidapi.com/submissions/28f68044-ae1b-42a0-a0ea-25e26a39ca9e",
         type: "GET",
         "headers": {
 		"x-rapidapi-host": "judge0.p.rapidapi.com",
