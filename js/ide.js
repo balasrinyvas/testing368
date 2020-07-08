@@ -397,7 +397,7 @@ function run() {
           },
             contentType: "application/json",
             //data: JSON.stringify(data),
-            data:"{ \"language_id\": 50, \"source_code\": \"#include <stdio.h>\\n\\nint main(void) {\\n  char name[10];\\n  scanf(\\\"%s\\\", name);\\n  printf(\\\"hello %s\\\\n\\\", name);\\n  return 0;\\n}\", \"stdin\": \"world\"}",
+            data:`{ \"language_id\": 50, \"source_code\": \"#include <stdio.h>\\n\\nint main(void) {\\n  char name[10];\\n  scanf(\\\"%s\\\", name);\\n  printf(\\\"hello %s\\\\n\\\", name);\\n  return 0;\\n}\", \"stdin\": \"world\"}",
             xhrFields: {
                 withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
