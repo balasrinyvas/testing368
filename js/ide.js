@@ -751,7 +751,7 @@ $(document).ready(function () {
         layout.registerComponent("sandbox message", function (container, state) {
             sandboxMessageEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
-                theme: "vs",
+                theme: "hc-black",
                 scrollBeyondLastLine: false,
                 readOnly: state.readOnly,
                 language: "plaintext",
