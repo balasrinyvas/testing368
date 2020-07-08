@@ -6,11 +6,12 @@ html, body {
 }
 
 body {
-    background: url(/images/judge0_background.png) no-repeat center center fixed;
+/*     background: url(/images/judge0_background.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
+  background-color:white;
 }
 
 .ui[class*="left action"].input>.dropdown {
@@ -36,7 +37,7 @@ body {
 #site-navigation {
     border-radius: 0;
     margin: 0;
-    background: #1e1e1e;
+    background: ;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     height: 45px;
 }
@@ -190,4 +191,7 @@ body {
 
 input[type="text"] {
     width: 205px !important;
+}
+.item{
+  cursor:pointer;
 }
