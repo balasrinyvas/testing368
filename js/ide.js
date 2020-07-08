@@ -106,16 +106,8 @@ var layoutConfig = {
                         componentState: {
                             readOnly: true
                         }
-                      
-                    },
-                         {
-                        type: "component",
-                        componentName: "compile output",
-                        title: "COMPILE OUTPUT",
-                        isClosable: false,
-                        componentState: {
-                            readOnly: true
-                        }}]
+                    }]
+            }]
         }]
     }]
 };
@@ -716,7 +708,7 @@ $(document).ready(function () {
             });
         });
         
-        
+      
 
         layout.registerComponent("stderr", function (container, state) {
             stderrEditor = monaco.editor.create(container.getElement()[0], {
