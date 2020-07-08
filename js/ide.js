@@ -197,10 +197,10 @@ function handleResult(data) {
     timeEnd = performance.now();
     console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
     var status = data.status;
-    var stdout = localStorage.getItem('a130');
-    var stderr = data.stderr;
-    var compile_output = data.compile_output;
-    var sandbox_message =data.message;
+    var stdout = decode(localStorage.getItem('a130'));
+    var stderr = decode(data.stderr);
+    var compile_output = decode(data.compile_output);
+    var sandbox_message =decode(data.message);
     var time = (data.time === null ? "-" : data.time + "s");
     var memory = (data.memory === null ? "-" : data.memory + "KB");
     //alert(stdout);
@@ -216,7 +216,7 @@ function handleResult(data) {
     }
    $runBtn.removeClass("loading");
     stdoutEditor.setValue(stdout);
-    stderrEditor.setValue(data.stderr);
+    stderrEditor.setValue(stderr);
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
 
@@ -374,11 +374,8 @@ function run() {
     if (parseInt(languageId) === 44) {
         sourceValue = sourceEditor.getValue();
     }
-    localStorage.setItem('a20',sourceEditor.getValue());
-    localStorage.setItem('a21',resolveLanguageId($selectLanguage.val()));
-    localStorage.setItem('a22',stdinEditor.getValue());
      var data = {
-        source_code: localStorage.getItem('a20'),
+        source_code: sourceValue
         language_id: localStorage.getItem('a21'),
         stdin: localStorage.getItem('a22'),
         compiler_options: compilerOptions,
