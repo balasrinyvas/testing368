@@ -60,8 +60,19 @@ var layoutConfig = {
                 readOnly: false
             }
         }, {
-            type: "stack",
+            type: "row",
             content: [{
+                type: "row",
+                content: [{
+                    type: "component",
+                    componentName: "stdin",
+                    title: "STDIN",
+                    isClosable: false,
+                    componentState: {
+                        readOnly: false
+                    }
+                }]
+            }, {
                 type: "column",
                 content: [{
                         type: "component",
