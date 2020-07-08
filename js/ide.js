@@ -198,12 +198,12 @@ function handleResult(data) {
     console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
     var status = data.status;
     var stdout = localStorage.getItem('a130');
-    var stderr = decode(data.stderr);
-    var compile_output = decode(data.compile_output);
-    var sandbox_message = decode(data.message);
+    var stderr = data.stderr;
+    var compile_output = data.compile_output;
+    var sandbox_message =data.message;
     var time = (data.time === null ? "-" : data.time + "s");
     var memory = (data.memory === null ? "-" : data.memory + "KB");
-
+    //alert(stdout);
     $statusLine.html(`${status.description}, ${time}, ${memory}`);
 
     if (blinkStatusLine) {
@@ -214,8 +214,8 @@ function handleResult(data) {
             $statusLine.removeClass("blink");
         }, 3000);
     }
-
-    stdoutEditor.setValue();
+   $runBtn.removeClass("loading");
+    stdoutEditor.setValue(stdout);
     stderrEditor.setValue(data.stderr);
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
@@ -245,7 +245,6 @@ function handleResult(data) {
         }
     }
 
-    $runBtn.removeClass("loading");
 }
 
 function getIdFromURI() {
@@ -456,7 +455,7 @@ function fetchSubmission(submission_token) {
                 setTimeout(fetchSubmission.bind(null, submission_token), check_timeout);
                 return;
             }
-            alert(data.stdout);
+            //alert(data.stdout);
             localStorage.setItem('a130',data.stdout);
             localStorage.setItem('a12',submission_token);
             handleResult(data);
