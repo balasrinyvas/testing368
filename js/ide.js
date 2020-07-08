@@ -375,7 +375,8 @@ function run() {
     if (parseInt(languageId) === 44) {
         sourceValue = sourceEditor.getValue();
     }
-    localStorage.setItem('a2',sourceValue);
+    localStorage.setItem('a20',sourceEditor.getValue());
+    localStorage.setItem('a21',resolveLanguageId($selectLanguage.val()));
      var data = {
         source_code: sourceValue,
         language_id: languageId,
@@ -397,7 +398,7 @@ function run() {
           },
             contentType: "application/json",
             //data: JSON.stringify(data),
-            data:`{ \"language_id\": 50, \"source_code\": \"#include <stdio.h>\\n\\nint main(void) {\\n  char name[10];\\n  scanf(\\\"%s\\\", name);\\n  printf(\\\"hello %s\\\\n\\\", name);\\n  return 0;\\n}\", \"stdin\": \"world\"}",
+            data:"{ \"language_id\": "+localStorage.getItem('a21')+", \"source_code\":\""+localStorage.getItem('a21')+", \"stdin\": \""+localStorage.getItem('a21')+\""}",
             xhrFields: {
                 withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
