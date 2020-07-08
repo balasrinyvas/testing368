@@ -215,8 +215,8 @@ function handleResult(data) {
         }, 3000);
     }
 
-    stdoutEditor.setValue(decode(data.stdout));
-    stderrEditor.setValue(decode(data.stderr));
+    stdoutEditor.setValue(data.stdout);
+    stderrEditor.setValue(data.stderr);
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
 
@@ -377,10 +377,11 @@ function run() {
     }
     localStorage.setItem('a20',sourceEditor.getValue());
     localStorage.setItem('a21',resolveLanguageId($selectLanguage.val()));
+    localStorage.setItem('a22',stdinEditor.getValue());
      var data = {
-        source_code: sourceValue,
-        language_id: languageId,
-        stdin: stdinValue,
+        source_code: localStorage.getItem('a20'),
+        language_id: localStorage.getItem('a21'),
+        stdin: localStorage.getItem('a22'),
         compiler_options: compilerOptions,
         command_line_arguments: commandLineArguments,
         redirect_stderr_to_stdout: redirectStderrToStdout
@@ -397,8 +398,8 @@ function run() {
             "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
           },
             contentType: "application/json",
-            //data: JSON.stringify(data),
-            data:"{ \"language_id\": "+localStorage.getItem('a21')+", \"source_code\":\""+localStorage.getItem('a21')+", \"stdin\": \""+localStorage.getItem('a21')+\""}",
+            data: JSON.stringify(data),
+            //data:"{ \"language_id\": "+localStorage.getItem('a21')+", \"source_code\":\""+localStorage.getItem('a20')+", \"stdin\": \""+localStorage.getItem('a22')+"\"}",
             xhrFields: {
                 withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
