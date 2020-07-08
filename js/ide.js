@@ -106,8 +106,16 @@ var layoutConfig = {
                         componentState: {
                             readOnly: true
                         }
-                    }]
-            }]
+                      
+                    },
+                         {
+                        type: "component",
+                        componentName: "compile output",
+                        title: "COMPILE OUTPUT",
+                        isClosable: false,
+                        componentState: {
+                            readOnly: true
+                        }}]
         }]
     }]
 };
@@ -707,6 +715,8 @@ $(document).ready(function () {
                 });
             });
         });
+        
+        
 
         layout.registerComponent("stderr", function (container, state) {
             stderrEditor = monaco.editor.create(container.getElement()[0], {
@@ -773,7 +783,7 @@ $(document).ready(function () {
             if (getIdFromURI()) {
                 loadSavedSource();
             } else {
-                loadRandomLanguage();
+                //loadRandomLanguage();
             }
             $("#site-navigation").css("border-bottom", "1px solid black");
             sourceEditor.focus();
