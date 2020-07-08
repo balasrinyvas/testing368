@@ -197,7 +197,7 @@ function handleResult(data) {
     timeEnd = performance.now();
     console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
     var status = data.status;
-    var stdout = decode(localStorage.getItem('a130'));
+    var stdout = decode(data.stdout);
     var stderr = decode(data.stderr);
     var compile_output = decode(data.compile_output);
     var sandbox_message =decode(data.message);
@@ -375,9 +375,9 @@ function run() {
         sourceValue = sourceEditor.getValue();
     }
      var data = {
-        source_code: sourceValue
-        language_id: localStorage.getItem('a21'),
-        stdin: localStorage.getItem('a22'),
+        source_code: sourceValue,
+        language_id: languageId,
+        stdin: stdinValue,
         compiler_options: compilerOptions,
         command_line_arguments: commandLineArguments,
         redirect_stderr_to_stdout: redirectStderrToStdout
@@ -386,7 +386,7 @@ function run() {
     var sendRequest = function(data) {
         timeStart = performance.now();
         $.ajax({
-            url: 'https://judge0.p.rapidapi.com/submissions',
+            url: `https://judge0.p.rapidapi.com/submissions?base64_encoded=true&wait=${wait}`,
             type: "POST",
             async: true,
           "headers":{
@@ -440,7 +440,7 @@ function run() {
 
 function fetchSubmission(submission_token) {
     $.ajax({
-        url: "https://judge0.p.rapidapi.com/submissions/"+submission_token,
+        url: "https://judge0.p.rapidapi.com/submissions/"+submission_token+"?base64_encoded=true",
         type: "GET",
         "headers": {
 		"x-rapidapi-host": "judge0.p.rapidapi.com",
@@ -453,8 +453,8 @@ function fetchSubmission(submission_token) {
                 return;
             }
             //alert(data.stdout);
-            localStorage.setItem('a130',data.stdout);
-            localStorage.setItem('a12',submission_token);
+            // localStorage.setItem('a130',data.stdout);
+            // localStorage.setItem('a12',submission_token);
             handleResult(data);
         },
         error: handleRunError
