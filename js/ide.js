@@ -215,8 +215,8 @@ function handleResult(data) {
         }, 3000);
     }
 
-    stdoutEditor.setValue(localStorage.getItem("a"));
-    stderrEditor.setValue(localStorage.getItem("a12"));
+    stdoutEditor.setValue(decode(data.stdout));
+    stderrEditor.setValue(decode(data.stderr));
     compileOutputEditor.setValue(compile_output);
     sandboxMessageEditor.setValue(resolveLanguageId($selectLanguage.val()));
 
@@ -377,9 +377,9 @@ function run() {
     }
     localStorage.setItem('a2',sourceValue);
      var data = {
-        source_code: sourceValue+"",
-        language_id: languageId+"",
-        stdin: stdinValue+"",
+        source_code: sourceValue,
+        language_id: languageId,
+        stdin: stdinValue,
         compiler_options: compilerOptions,
         command_line_arguments: commandLineArguments,
         redirect_stderr_to_stdout: redirectStderrToStdout
@@ -442,7 +442,7 @@ function run() {
 
 function fetchSubmission(submission_token) {
     $.ajax({
-        url: "https://judge0.p.rapidapi.com/submissions/"+submission_token+"?base64_encoded=true",
+        url: "https://judge0.p.rapidapi.com/submissions/"+submission_token,
         type: "GET",
         "headers": {
 		"x-rapidapi-host": "judge0.p.rapidapi.com",
