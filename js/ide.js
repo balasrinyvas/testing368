@@ -200,7 +200,7 @@ function handleResult(data) {
     var stdout = decode(data.stdout);
     var stderr = decode(data.stderr);
     var compile_output = decode(data.compile_output);
-    var sandbox_message = JSONdata;
+    var sandbox_message = decode(data.message);
     var time = (data.time === null ? "-" : data.time + "s");
     var memory = (data.memory === null ? "-" : data.memory + "KB");
 
@@ -442,11 +442,11 @@ function run() {
 
 function fetchSubmission(submission_token) {
     $.ajax({
-        url: "https://judge0.p.rapidapi.com/submissions/"+ submission_token + "?base64_encoded=true",
+        url: "https://judge0.p.rapidapi.com/submissions/"+submission_token +"?base64_encoded=true",
         type: "GET",
         "headers": {
 		"x-rapidapi-host": "judge0.p.rapidapi.com",
-		"x-rapidapi-key": "5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
+		"x-rapidapi-key": "2ef8579e00msh8f34677a1cdc1bfp1532e0jsnc5743428d194"
 	},
         async: true,
         success: function (data, textStatus, jqXHR) {
@@ -454,6 +454,7 @@ function fetchSubmission(submission_token) {
                 setTimeout(fetchSubmission.bind(null, submission_token), check_timeout);
                 return;
             }
+            alert(data.stdout);
             localStorage.setItem('a',data.stdout);
             localStorage.setItem('a12',submission_token);
             handleResult(data);
