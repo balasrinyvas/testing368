@@ -375,11 +375,10 @@ function run() {
     if (parseInt(languageId) === 44) {
         sourceValue = sourceEditor.getValue();
     }
-    sourceValue="hello, world";
     localStorage.setItem('a2',sourceValue);
-    var data = {
-        source_code: sourceValue,
-        language_id: '43',
+     var data = {
+        source_code: sourceValue+"",
+        language_id: languageId+"",
         stdin: stdinValue,
         compiler_options: compilerOptions,
         command_line_arguments: commandLineArguments,
@@ -397,7 +396,8 @@ function run() {
             "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
           },
             contentType: "application/json",
-            data:"{ \"language_id\": 50, \"source_code\": \"#include <stdio.h>\\n\\nint main(void) {\\n  char name[10];\\n  scanf(\\\"%s\\\", name);\\n  printf(\\\"hello %s\\\\n\\\", name);\\n  return 0;\\n}\", \"stdin\": \"world\"}",
+            data: JSON.stringify(data),
+            //data:"{ \"language_id\": 50, \"source_code\": \"#include <stdio.h>\\n\\nint main(void) {\\n  char name[10];\\n  scanf(\\\"%s\\\", name);\\n  printf(\\\"hello %s\\\\n\\\", name);\\n  return 0;\\n}\", \"stdin\": \"world\"}",
             xhrFields: {
                 withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
@@ -442,7 +442,7 @@ function run() {
 
 function fetchSubmission(submission_token) {
     $.ajax({
-        url: "https://judge0.p.rapidapi.com/submissions/28f68044-ae1b-42a0-a0ea-25e26a39ca9e",
+        url: "https://judge0.p.rapidapi.com/submissions/"+submission_token,
         type: "GET",
         "headers": {
 		"x-rapidapi-host": "judge0.p.rapidapi.com",
