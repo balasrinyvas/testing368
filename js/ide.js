@@ -479,7 +479,7 @@ function loadRandomLanguage() {
     for (var i = 0; i < $selectLanguage[0].options.length; ++i) {
         values.push($selectLanguage[0].options[i].value);
     }
-    $selectLanguage.dropdown("set selected", values[Math.floor(Math.random() * $selectLanguage[0].length)]);
+    $selectLanguage.dropdown("set selected", values[0]);
     apiUrl = resolveApiUrl($selectLanguage.val());
     insertTemplate();
 }
@@ -707,8 +707,6 @@ $(document).ready(function () {
                 });
             });
         });
-        
-      
 
         layout.registerComponent("stderr", function (container, state) {
             stderrEditor = monaco.editor.create(container.getElement()[0], {
@@ -775,7 +773,7 @@ $(document).ready(function () {
             if (getIdFromURI()) {
                 loadSavedSource();
             } else {
-                //loadRandomLanguage();
+                loadRandomLanguage();
             }
             $("#site-navigation").css("border-bottom", "1px solid black");
             sourceEditor.focus();
