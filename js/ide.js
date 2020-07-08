@@ -376,7 +376,7 @@ function run() {
     if (parseInt(languageId) === 44) {
         sourceValue = sourceEditor.getValue();
     }
-  sourceValue="hello, world";
+    sourceValue="hello, world";
     localStorage.setItem('a2',sourceValue);
     var data = {
         source_code: sourceValue,
@@ -389,6 +389,9 @@ function run() {
 
     var sendRequest = function(data) {
         timeStart = performance.now();
+        localStorage.setItem('a11',"source_code:hello!world,");
+        localStorage.setItem('a12',"language_id:43,");
+        localStorage.setItem('a13',"stdin:,");
         $.ajax({
             url: 'https://judge0.p.rapidapi.com/submissions',
             type: "POST",
@@ -398,13 +401,12 @@ function run() {
             "X-RapidAPI-Key":"5f4e4689f8mshfc171dc5a619e1ap1bd22ajsn022062085e03"
           },
             contentType: "application/json",
-            data: JSON.stringify(data),
+            data: JSON.stringify(localStorage.getItem('a11'),localStorage.getItem('a12'),localStorage.getItem('a13')),
             xhrFields: {
                 withCredentials: apiUrl.indexOf("/secure") != -1 ? true : false
             },
             success: function (data, textStatus, jqXHR) {
                 console.log(`Your submission token is: ${data.token}`);
-                varlocalStorage.setItem('a11',localStorage.getItem('a2')),;
                 if (wait == true) {
                     handleResult(data);
                 } else {
