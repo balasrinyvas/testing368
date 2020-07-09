@@ -558,7 +558,7 @@ $(document).ready(function () {
     console.log("Hey, Judge0 IDE is open-sourced: https://github.com/judge0/ide. Have fun!");
 
     $selectLanguage = $("#select-language");
-    $select1Language = $("#select1-language");
+    // $select1Language = $("#select1-language");
     $selectLanguage.change(function (e) {
         if (!isEditorDirty) {
             insertTemplate();
@@ -567,13 +567,12 @@ $(document).ready(function () {
         }
     });
      
-   $select1Language.change(function (e) {
-        if (!isEditorDirty) {
-            insertTemplate();
-        } else {
-            changeEditorLanguage();
-        }
-    });
+   $(document).ready(function() {
+  $('#select1-language').click(function() {
+    $(this).val('Processing...');
+    alert("Changed");
+  })
+});
 
     $compilerOptions = $("#compiler-options");
     $commandLineArguments = $("#command-line-arguments");
