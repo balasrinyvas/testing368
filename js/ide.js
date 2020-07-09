@@ -838,7 +838,7 @@ int main(void) {\n\
 var csharpSource = "\
 public class Hello {\n\
     public static void Main() {\n\
-        System.Console.WriteLine(\"hello, world\");\n\
+        System.Console.WriteLine(\"Welcome to CodeLit\");\n\
     }\n\
 }\n\
 ";
@@ -847,37 +847,37 @@ var cppSource = "\
 #include <iostream>\n\
 \n\
 int main() {\n\
-    std::cout << \"hello, world\" << std::endl;\n\
+    std::cout << \"Welcome to CodeLit\" << std::endl;\n\
     return 0;\n\
 }\n\
 ";
 
-var clojureSource = "(println \"hello, world\")\n";
+var clojureSource = "(println \"Welcome to CodeLit\")\n";
 
 var cobolSource = "\
 IDENTIFICATION DIVISION.\n\
 PROGRAM-ID. MAIN.\n\
 PROCEDURE DIVISION.\n\
-DISPLAY \"hello, world\".\n\
+DISPLAY \"Welcome to CodeLit\".\n\
 STOP RUN.\n\
 ";
 
-var lispSource = "(write-line \"hello, world\")";
+var lispSource = "(write-line \"Welcome to CodeLit\")";
 
 var dSource = "\
 import std.stdio;\n\
 \n\
 void main()\n\
 {\n\
-    writeln(\"hello, world\");\n\
+    writeln(\"Welcome to CodeLit\");\n\
 }\n\
 ";
 
-var elixirSource = "IO.puts \"hello, world\"";
+var elixirSource = "IO.puts \"Welcome to CodeLit\"";
 
 var erlangSource = "\
 main(_) ->\n\
-    io:fwrite(\"hello, world\\n\").\n\
+    io:fwrite(\"Welcome to CodeLit\\n\").\n\
 ";
 
 var executableSource = "\
@@ -886,17 +886,17 @@ Judge0 IDE assumes that content of executable is Base64 encoded.\n\
 This means that you should Base64 encode content of your binary,\n\
 paste it here and click \"Run\".\n\
 \n\
-Here is an example of compiled \"hello, world\" NASM program.\n\
+Here is an example of compiled \"Welcome to CodeLit\" NASM program.\n\
 Content of compiled binary is Base64 encoded and used as source code.\n\
 \n\
 https://ide.judge0.com/?kS_f\n\
 ";
 
-var fsharpSource = "printfn \"hello, world\"\n";
+var fsharpSource = "printfn \"Welcome to CodeLit\"\n";
 
 var fortranSource = "\
 program main\n\
-    print *, \"hello, world\"\n\
+    print *, \"Welcome to CodeLit\"\n\
 end\n\
 ";
 
@@ -906,31 +906,31 @@ package main\n\
 import \"fmt\"\n\
 \n\
 func main() {\n\
-    fmt.Println(\"hello, world\")\n\
+    fmt.Println(\"Welcome to CodeLit\")\n\
 }\n\
 ";
 
-var groovySource = "println \"hello, world\"\n";
+var groovySource = "println \"Welcome to CodeLit\"\n";
 
-var haskellSource = "main = putStrLn \"hello, world\"";
+var haskellSource = "main = putStrLn \"Welcome to CodeLit\"";
 
 var javaSource = "\
 public class Main {\n\
     public static void main(String[] args) {\n\
-        System.out.println(\"hello, world\");\n\
+        System.out.println(\"Welcome to CodeLit\");\n\
     }\n\
 }\n\
 ";
 
-var javaScriptSource = "console.log(\"hello, world\");";
+var javaScriptSource = "console.log(\"Welcome to CodeLit\");";
 
 var kotlinSource = "\
 fun main() {\n\
-    println(\"hello, world\")\n\
+    println(\"Welcome to CodeLit\")\n\
 }\n\
 ";
 
-var luaSource = "print(\"hello, world\")";
+var luaSource = "print(\"Welcome to CodeLit\")";
 
 var objectiveCSource = "\
 #import <Foundation/Foundation.h>\n\
@@ -946,14 +946,14 @@ int main() {\n\
 }\n\
 ";
 
-var ocamlSource = "print_endline \"hello, world\"";
+var ocamlSource = "print_endline \"Welcome to CodeLit\"";
 
-var octaveSource = "printf(\"hello, world\\n\");";
+var octaveSource = "printf(\"Welcome to CodeLit\\n\");";
 
 var pascalSource = "\
 program Hello;\n\
 begin\n\
-    writeln ('hello, world')\n\
+    writeln ('Welcome to CodeLit')\n\
 end.\n\
 ";
 
@@ -964,26 +964,26 @@ print \"hello, $name\";\n\
 
 var phpSource = "\
 <?php\n\
-print(\"hello, world\\n\");\n\
+print(\"Welcome to CodeLit\\n\");\n\
 ?>\n\
 ";
 
-var plainTextSource = "hello, world\n";
+var plainTextSource = "Welcome to CodeLit\n";
 
 var prologSource = "\
 :- initialization(main).\n\
-main :- write('hello, world\\n').\n\
+main :- write('Welcome to CodeLit\\n').\n\
 ";
 
-var pythonSource = "print(\"hello, world\")";
+var pythonSource = "print(\"Welcome to CodeLit\")";
 
-var rSource = "cat(\"hello, world\\n\")";
+var rSource = "cat(\"Welcome to CodeLit\\n\")";
 
-var rubySource = "puts \"hello, world\"";
+var rubySource = "puts \"Welcome to CodeLit\"";
 
 var rustSource = "\
 fn main() {\n\
-    println!(\"hello, world\");\n\
+    println!(\"Welcome to CodeLit\");\n\
 }\n\
 ";
 
@@ -1016,12 +1016,12 @@ let name = readLine()\n\
 print(\"hello, \\(name!)\")\n\
 ";
 
-var typescriptSource = "console.log(\"hello, world\");";
+var typescriptSource = "console.log(\"Welcome to CodeLit\");";
 
 var vbSource = "\
 Public Module Program\n\
    Public Sub Main()\n\
-      Console.WriteLine(\"hello, world\")\n\
+      Console.WriteLine(\"Welcome to CodeLit\")\n\
    End Sub\n\
 End Module\n\
 ";
@@ -1035,7 +1035,7 @@ extern func void printf(char *str, ...);\n\
 \n\
 func int main()\n\
 {\n\
-    printf(\"hello, world\\n\");\n\
+    printf(\"Welcome to CodeLit\\n\");\n\
     return 0;\n\
 }\n\
 ";
@@ -1124,7 +1124,7 @@ print(f\"Hello from processor with rank {world_rank} out of {world_size} process
 var nimSource = "\
 # On the Judge0 IDE, Nim is automatically\n\
 # updated every day to the latest stable version.\n\
-echo \"hello, world\"\n\
+echo \"Welcome to CodeLit\"\n\
 ";
 
 var pythonForMlSource = "\
@@ -1134,7 +1134,7 @@ import pandas\n\
 import scipy\n\
 import sklearn\n\
 \n\
-print(\"hello, world\")\n\
+print(\"Welcome to CodeLit\")\n\
 ";
 
 var bosqueSource = "\
