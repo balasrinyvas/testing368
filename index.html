@@ -85,14 +85,6 @@
            <div class="item no-left-padding borderless">
                 <button id="run-btn" class="ui primary labeled icon button"><i class="play icon"></i>Execute (F9)</button>
             </div>
-          <div class="item borderless">
-            <select class="country" >
-            <option value="vs">Select Theme</option>
-            <option value="vs">White</option>
-            <option value="vs-dark">Grey</option>
-            <option value="hc-black">Black</option>
-        </select>
-               </div>
             <div class="item borderless">
                 <select id="select-language" class="ui dropdown">
                  <option value="45" mode="UNKNOWN">Assembly (NASM 2.14.02)</option> <!-- Unknown mode. Help needed. --> 
@@ -164,6 +156,15 @@
                     <input id="command-line-arguments" type="text" placeholder="Command line arguments"></input>
                 </div>
             </div>
+            <div class="item borderless">
+            <select class="country" >
+            <option value="vs">Select Theme</option>
+            <option value="vs">White</option>
+            <option value="vs-dark">Grey</option>
+            <option value="hc-black">Black</option>
+        </select>
+               </div>
+      
 <!--             <div class="item no-left-padding borderless">
                 <button id="run-btn" class="ui primary labeled icon button"><i class="play icon"></i>Run (F9)</button>
             </div> -->
@@ -171,6 +172,16 @@
                 <span class="navigation-message-text"></span>
             </div>
         </div>
+      
+       <div class="item borderless">
+            <select class="country1" >
+            <option value="vs1">Select Theme</option>
+            <option value="vs1">White</option>
+            <option value="vs2">Grey</option>
+            <option value="vs3">Black</option>
+        </select>
+               </div>
+        
         <div class="right menu">
 <!--             <div id="updates" class="link item changelogfy-widget">
                 <i class="fitted bell icon"></i>
@@ -310,6 +321,24 @@ $(document).ready(function(){
         //alert("You have selected the country - " + selectedCountry);
         window.location.reload();
     });
+    
+});
+</script>
+  <script>
+  
+$(document).ready(function(){
+    $("select.country1").change(function(){
+        var selectedCountry = $(this).children("option:selected").val();
+      if(selectedCountry=="vs1")
+        {
+        localStorage.setItem('val0','row');
+        localStorage.setItem('val1','row');
+        localStorage.setItem('val2','column');
+        //alert("You have selected the country - " + selectedCountry);
+        window.location.reload();
+        }
+    });
+    
 });
 </script>
 </body>

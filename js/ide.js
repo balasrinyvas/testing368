@@ -3,7 +3,9 @@ var apiUrl = " https://api.judge0.com";
 var wait = localStorageGetItem("wait") || false;
 var pbUrl = "https://pb.judge0.com";
 var check_timeout = 200;
-
+var val0=localStorage.getItem('val0')||"row";
+var val1=localStorage.getItem('val1')||"row";
+var val2=localStorage.getItem('val2')||"column";
 var blinkStatusLine = ((localStorageGetItem("blink") || "true") === "true");
 var themeopt=localStorageGetItem("themeopt")||"vs";
 var editorMode = localStorageGetItem("editorMode") || "normal";
@@ -52,7 +54,7 @@ var layoutConfig = {
         headerHeight: 22
     },
     content: [{
-        type: "row",
+        type: val0,
         content: [{
             type: "component",
             componentName: "source",
@@ -62,7 +64,7 @@ var layoutConfig = {
                 readOnly: false
             }
         }, {
-            type: "row",
+            type: val1,
             content: [{
                 type: "row",
                 content: [{
@@ -75,7 +77,7 @@ var layoutConfig = {
                     }
                 }]
             }, {
-                type: "column",
+                type: val2,
                 content: [{
                         type: "component",
                         componentName: "stdout",
