@@ -818,19 +818,19 @@ _start:\n\
 \n\
 section	.rodata\n\
 \n\
-msg	db 'hello, world', 0xa\n\
+msg	db 'Welcome to CodeLit', 0xa\n\
 len	equ	$ - msg\n\
 ";
 
-var bashSource = "echo \"hello, world\"";
+var bashSource = "echo \"Welcome to CodeLit\"";
 
-var basicSource = "PRINT \"hello, world\"";
+var basicSource = "PRINT \"Welcome to CodeLit\"";
 
 var cSource = "\
 #include <stdio.h>\n\
 \n\
 int main(void) {\n\
-    printf(\"hello, world\\n\");\n\
+    printf(\"Welcome to CodeLit\\n\");\n\
     return 0;\n\
 }\n\
 ";
