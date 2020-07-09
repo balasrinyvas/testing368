@@ -5,7 +5,7 @@ var pbUrl = "https://pb.judge0.com";
 var check_timeout = 200;
 
 var blinkStatusLine = ((localStorageGetItem("blink") || "true") === "true");
-var themeopt=localStorageGetItem("themeopt")||"vs-dark";
+var themeopt=localStorageGetItem("themeopt")||"vs";
 var editorMode = localStorageGetItem("editorMode") || "normal";
 var redirectStderrToStdout = ((localStorageGetItem("redirectStderrToStdout") || "false") === "true");
 var editorModeObject = null;

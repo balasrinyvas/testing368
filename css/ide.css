@@ -21,6 +21,12 @@ body {
 .ui.selection.dropdown {
     width: 205px;
 }
+.country
+{
+  border-radius: 0 .28571429rem .28571429rem 0;
+  width: 150px;
+  height:36px;
+}
 
 .lm_header .lm_tab {
     padding-bottom: 3px;
