@@ -668,7 +668,7 @@ $(document).ready(function () {
         layout.registerComponent("source", function (container, state) {
             sourceEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
-                theme: "vs",
+                theme: themeopt,
                 scrollBeyondLastLine: true,
                 readOnly: state.readOnly,
                 language: "cpp",
@@ -691,7 +691,7 @@ $(document).ready(function () {
         layout.registerComponent("stdin", function (container, state) {
             stdinEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
-                theme: "vs",
+                theme:themeopt,
                 scrollBeyondLastLine: false,
                 readOnly: state.readOnly,
                 language: "plaintext",
@@ -704,7 +704,7 @@ $(document).ready(function () {
         layout.registerComponent("stdout", function (container, state) {
             stdoutEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
-                theme: "vs",
+                theme: themeopt,
                 scrollBeyondLastLine: false,
                 readOnly: state.readOnly,
                 language: "plaintext",
@@ -724,7 +724,7 @@ $(document).ready(function () {
         layout.registerComponent("stderr", function (container, state) {
             stderrEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
-                theme: "vs",
+                theme: themeopt,
                 scrollBeyondLastLine: false,
                 readOnly: state.readOnly,
                 language: "plaintext",
@@ -744,7 +744,7 @@ $(document).ready(function () {
         layout.registerComponent("compile output", function (container, state) {
             compileOutputEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
-                theme: "vs",
+                theme: themeopt,
                 scrollBeyondLastLine: false,
                 readOnly: state.readOnly,
                 language: "plaintext",
