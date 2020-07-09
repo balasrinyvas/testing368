@@ -567,12 +567,16 @@ $(document).ready(function () {
         }
     });
      
-   $(document).ready(function() {
-  $('#select1-language').click(function() {
-    $(this).val('Processing...');
-    alert("Changed");
+  $("#select1-language").val(2);
+  $( "select" )
+  .change(function () {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+    });
+    $( "div" ).text( str );
   })
-});
+  .change();
 
     $compilerOptions = $("#compiler-options");
     $commandLineArguments = $("#command-line-arguments");
