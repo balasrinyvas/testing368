@@ -566,15 +566,14 @@ $(document).ready(function () {
             changeEditorLanguage();
         }
     });
-     
-  $("#select1-language").val(2);
-  $( "select" )
+  
+  $( "select1-language" )
   .change(function () {
     var str = "";
     $( "select option:selected" ).each(function() {
       str += $( this ).text() + " ";
     });
-    $( "div" ).text( str );
+    alert(str);
   })
   .change();
 
