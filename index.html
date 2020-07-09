@@ -174,11 +174,13 @@
         </div>
       
        <div class="item borderless">
-            <select class="country1" >
-            <option value="vs1">Select Theme</option>
-            <option value="vs1">White</option>
-            <option value="vs2">Grey</option>
-            <option value="vs3">Black</option>
+            <select class="country1">
+            <option value="vs1">Select Layout</option>
+            <option value="vs1">Layout-1</option>
+            <option value="vs2">Layout-2</option>
+            <option value="vs3">Layout-3</option>
+            <option value="vs4">Layout-4</option>
+            <option value="vs5">Layout-5</option>
         </select>
                </div>
         
@@ -334,6 +336,38 @@ $(document).ready(function(){
         localStorage.setItem('val0','row');
         localStorage.setItem('val1','row');
         localStorage.setItem('val2','column');
+        //alert("You have selected the country - " + selectedCountry);
+        window.location.reload();
+        }
+      if(selectedCountry=="vs2")
+        {
+        localStorage.setItem('val0','row');
+        localStorage.setItem('val1','column');
+        localStorage.setItem('val2','column');
+        //alert("You have selected the country - " + selectedCountry);
+        window.location.reload();
+        }
+      if(selectedCountry=="vs3")
+        {
+        localStorage.setItem('val0','row');
+        localStorage.setItem('val1','column');
+        localStorage.setItem('val2','row');
+        //alert("You have selected the country - " + selectedCountry);
+        window.location.reload();
+        }
+      if(selectedCountry=="vs4")
+        {
+        localStorage.setItem('val0','column');
+        localStorage.setItem('val1','column');
+        localStorage.setItem('val2','row');
+        //alert("You have selected the country - " + selectedCountry);
+        window.location.reload();
+        }
+      if(selectedCountry=="vs5")
+        {
+        localStorage.setItem('val0','column');
+        localStorage.setItem('val1','row');
+        localStorage.setItem('val2','row');
         //alert("You have selected the country - " + selectedCountry);
         window.location.reload();
         }
