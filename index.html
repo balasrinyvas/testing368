@@ -85,11 +85,12 @@
            <div class="item no-left-padding borderless">
                 <button id="run-btn" class="ui primary labeled icon button"><i class="play icon"></i>Execute (F9)</button>
             </div>
-          <div class="item borderless">
+          <div class="item borderless" id="ui dropdown">
             <select class="country">
-            <option value="vs">United States</option>
-            <option value="vs-dark">India</option>
-            <option value="">United Kingdom</option>
+            <option value="vs">Select Theme</option>
+            <option value="vs">White</option>
+            <option value="vs-dark">Grey</option>
+            <option value="hc-black">Black</option>
         </select>
                </div>
             <div class="item borderless">
@@ -304,6 +305,7 @@
 $(document).ready(function(){
     $("select.country").change(function(){
         var selectedCountry = $(this).children("option:selected").val();
+        localStorage.setItem('themeopt',selectedCountry);
         alert("You have selected the country - " + selectedCountry);
     });
 });

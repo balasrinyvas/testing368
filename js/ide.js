@@ -5,7 +5,7 @@ var pbUrl = "https://pb.judge0.com";
 var check_timeout = 200;
 
 var blinkStatusLine = ((localStorageGetItem("blink") || "true") === "true");
-var themeopt=localStorageGetItem("themeopt")||"vs";
+var themeopt=localStorageGetItem("themeopt")||"vs-dark";
 var editorMode = localStorageGetItem("editorMode") || "normal";
 var redirectStderrToStdout = ((localStorageGetItem("redirectStderrToStdout") || "false") === "true");
 var editorModeObject = null;
@@ -764,7 +764,7 @@ $(document).ready(function () {
         layout.registerComponent("sandbox message", function (container, state) {
             sandboxMessageEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
-                theme: "vm",
+                theme: themeopt,
                 scrollBeyondLastLine: false,
                 readOnly: state.readOnly,
                 language: "plaintext",
