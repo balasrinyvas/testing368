@@ -5,6 +5,7 @@ var pbUrl = "https://pb.judge0.com";
 var check_timeout = 200;
 
 var blinkStatusLine = ((localStorageGetItem("blink") || "true") === "true");
+var themeopt=localStorageGetItem("themeopt")||"vs";
 var editorMode = localStorageGetItem("editorMode") || "normal";
 var redirectStderrToStdout = ((localStorageGetItem("redirectStderrToStdout") || "false") === "true");
 var editorModeObject = null;
@@ -27,6 +28,7 @@ var isEditorDirty = false;
 var currentLanguageId;
 
 var $selectLanguage;
+var $select1Language;
 var $compilerOptions;
 var $commandLineArguments;
 var $insertTemplateBtn;
@@ -556,7 +558,16 @@ $(document).ready(function () {
     console.log("Hey, Judge0 IDE is open-sourced: https://github.com/judge0/ide. Have fun!");
 
     $selectLanguage = $("#select-language");
+    $select1Language = $("#select1-language");
     $selectLanguage.change(function (e) {
+        if (!isEditorDirty) {
+            insertTemplate();
+        } else {
+            changeEditorLanguage();
+        }
+    });
+     
+   $select1Language.change(function (e) {
         if (!isEditorDirty) {
             insertTemplate();
         } else {
